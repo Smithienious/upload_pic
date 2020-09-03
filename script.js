@@ -7,7 +7,14 @@ function successfullyGet() {
 	link += name;
 	link += "?crs=";
 	link += crs;
-	fetch(link)
+	fetch(link, {
+		headers: {
+          "Content-Type": "application/json",
+          'Access-Control-Allow-Origin': '*'
+        },
+		method: 'GET',
+		mode: "cors"
+	})
 	.then(response => response.json())
 	.then(data => console.log(data))
 	.then(_ => switcher = 2)
