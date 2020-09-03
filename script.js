@@ -3,18 +3,12 @@ function successfullyGet() {
 	const name = file.name;
 	const crs = document.querySelector("#crs").value;
 
+	const proxyurl = "https://cors-anywhere.herokuapp.com/";
 	var link = "https://apple-slice-2001.herokuapp.com/predict/";
 	link += name;
 	link += "?crs=";
 	link += crs;
-	fetch(link, {
-		headers: {
-          "Content-Type": "application/json",
-          'Access-Control-Allow-Origin': '*'
-        },
-		method: 'GET',
-		mode: "cors"
-	})
+	fetch(proxyurl + link)
 	.then(response => response.json())
 	.then(data => console.log(data))
 	.then(_ => switcher = 2)
