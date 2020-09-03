@@ -12,6 +12,9 @@
 
   <link rel="stylesheet" href="style.css">
 
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
   <title>OCR Demo</title>
 </head>
 
@@ -34,7 +37,7 @@
           </div>
           <div class="col-sm-12 order-2 order-md-1 col-md-6 text-center border">
             <div id="p5js"></div>
-            <div id="map"></div>
+            <div id='map' style='width: 400px; height: 300px;'></div>
             <p>This will show the map</p>
           </div>
           <div class="col-sm-12 order-1 order-md-2 text-center">
@@ -144,10 +147,11 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
   </script>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoidG9raXNha2lrdXJ1bWkyMDAxIiwiYSI6ImNrZW14aXlvYjExNTUyeW53bWlyZWh0OHgifQ.Bvwomqo3wwXFbZw1ImbS5g';
+  </script>
   <script src="upload.js"></script>
   <script src="progress-bar.js"></script>
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly" defer></script> -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script>
   <script src="draw-map.js"></script>
   <script src="script.js"></script>
 </body>

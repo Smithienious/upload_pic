@@ -1,14 +1,8 @@
-"use strict";
-
-let map;
-
-function initMap(coordinate) {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: {
-      lat: -34.397,
-      lng: 150.644
-    },
-    zoom: 8,
-    mapTypeId: 'satellite'
-  });
+function draw_map(coordinate) {
+	var map = new mapboxgl.Map({
+		container: 'map',
+		style: 'mapbox://styles/mapbox/streets-v11',
+		zoom: 13,
+		center: coordinate
+	});	
 }
