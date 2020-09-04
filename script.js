@@ -33,7 +33,7 @@ function predict() {
 		contentType: file.type
 	};
 
-	const task = ref.child(name).put(file, metadata);
+	const task = ref.child("images/"+name).put(file, metadata);
 	task
 	.then(snapshot => snapshot.ref.getDownloadURL())
 	.then(url => {
