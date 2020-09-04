@@ -1,12 +1,14 @@
 var percentage = 1;
 var switcher = 0;
 var speed = 0.1;
+var able_draw_map = 0;
 function setup() {
   createCanvas(200, 200).parent("p5js");
   background(255);
   percentage = 0;
   switcher = 0;
   speed = 0;
+  able_draw_map = 0;
 }
 
 function draw() {
@@ -15,6 +17,10 @@ function draw() {
   if (round(percentage) < 100 && percentage != 0) {
     percentage += speed;
     speed = whichSpeed();
+  } else if (percentage != 0) {
+    background(255);
+    document.querySelector("#p5js").style.display = 'none';
+    document.querySelector("#map").style.display = 'block';
   } else {
     background(255);
   }

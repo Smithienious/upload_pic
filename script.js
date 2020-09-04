@@ -2,7 +2,6 @@ function successfullyGet() {
 	const file = document.querySelector("#photo").files[0];
 	const name = file.name;
 	const crs = document.querySelector("#crs").value;
-	var return_data = Array.new();
 
 	// https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
 	const proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -13,22 +12,37 @@ function successfullyGet() {
 	fetch(proxyurl + link)
 	.then(response => response.json())
 	.then(data => {
-		return_data.push(data["latitude"]);
-		return_data.push(data["longitude"]);
+		const source = {"lon": data["longitude"], "lat": data["latitude"]};
+		draw_map(source);
 	})
 	.then(_ => switcher = 2)
 	.catch(err => console.error(err));
-
-	return return_data;
 }
 
 // this is called when the user want to predict image
 // flow: called uploadImage() -> draw progress bar -> get API -> draw map
 function predict() {
-  uploadImage()
-  setup();
-  switcher = 1;
-  percentage = 1;
-  coordinate = successfullyGet();
-  draw_map(coordinate);
+	document.querySelector("#p5js").style.display = 'block';
+	document.querySelector("#map").style.display = 'none';
+	percentage = 0;
+
+  	const ref = firebase.storage().ref();
+	const file = document.querySelector("#photo").files[0];
+	const name = file.name;
+	const metadata = {
+		contentType: file.type
+	};
+
+	const task = ref.child(name).put(file, metadata);
+	task
+	.then(snapshot => snapshot.ref.getDownloadURL())
+	.then(url => {
+		document.querySelector('.large-text').style.display = 'none';
+		document.querySelector('#so_hong_image').src = url;
+	}).then(_ => {
+		setup();
+		switcher = 1;
+		percentage = 1;
+		successfullyGet();
+	});
 }

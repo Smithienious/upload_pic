@@ -21,3 +21,18 @@
 #so_hong_image {
 	width: 100%;
 }
+
+#map {
+	/*box-sizing: border-box;
+	width: 100%;*/
+	height: 300px;
+	display:none;
+	/*position: absolute;
+	top: 0;
+	bottom: 0;*/
+	width: auto;
+}
+
+canvas.mapboxgl-canvas {
+	width:100% !important;
+}
