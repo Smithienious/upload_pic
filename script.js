@@ -1,6 +1,13 @@
+function uuid() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
+
 function successfullyGet() {
 	const file = document.querySelector("#photo").files[0];
-	const name = file.name;
+	const name = uuid().substring(0,9) + file.name;
 	const crs = document.querySelector("#crs").value;
 
 	// https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
@@ -28,7 +35,7 @@ function predict() {
 
   	const ref = firebase.storage().ref();
 	const file = document.querySelector("#photo").files[0];
-	const name = file.name;
+	const name = uuid().substring(0,9) + file.name;
 	const metadata = {
 		contentType: file.type
 	};
