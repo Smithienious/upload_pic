@@ -39,6 +39,7 @@
             <div id="p5js"></div>
             <div id="map"></div>
             <p id = "address"></p>
+            <p id = "error" style="display: none"></p>
           </div>
           <div class="col-sm-12 order-1 order-md-2 text-center">
             <div style="padding-top: 10px; padding-bottom: 10px">
@@ -127,25 +128,19 @@
 
   <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js"></script>
 
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-         https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
-
   <script>
     // Your web app's Firebase configuration
     var firebaseConfig = {
-      apiKey: "AIzaSyByarZUkaCwF9GSOGn57Oto46SVGUHjJD4",
-      authDomain: "upload-pics-ea915.firebaseapp.com",
-      databaseURL: "https://upload-pics-ea915.firebaseio.com",
-      projectId: "upload-pics-ea915",
-      storageBucket: "upload-pics-ea915.appspot.com",
-      messagingSenderId: "729136135160",
-      appId: "1:729136135160:web:db44dfabe38d80e071340d",
-      measurementId: "G-PS9Y21QENQ"
+      apiKey: "AIzaSyA1DQpPRfs9XxFc1RAOrRXY2Dn7o_iTiIQ",
+      authDomain: "fir-ocr-ec83a.firebaseapp.com",
+      databaseURL: "https://fir-ocr-ec83a.firebaseio.com",
+      projectId: "fir-ocr-ec83a",
+      storageBucket: "fir-ocr-ec83a.appspot.com",
+      messagingSenderId: "486449689562",
+      appId: "1:486449689562:web:3d4ce49e881c07d52706e3"
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
   </script>
   <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoidG9raXNha2lrdXJ1bWkyMDAxIiwiYSI6ImNrZW14aXlvYjExNTUyeW53bWlyZWh0OHgifQ.Bvwomqo3wwXFbZw1ImbS5g';

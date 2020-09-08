@@ -1,6 +1,6 @@
 var percentage = 1;
 var switcher = 0;
-var speed = 0.1;
+var speed = 0.05;
 var able_draw_map = 0;
 function setup() {
   createCanvas(200, 200).parent("p5js");
