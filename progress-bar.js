@@ -27,17 +27,17 @@ function draw() {
 }
 
 function drawProgress(stop) {
-  translate(width/2, height/2);
-  rotate(-PI/2.0);
+  translate(width / 2, height / 2);
+  rotate(-PI / 2.0);
   noFill();
   strokeWeight(4);
-  arc(0,0,150,150,0,2*PI * stop / 100);
-  
-  fill(0,0,0);
-  rotate(PI/2);
+  arc(0, 0, 150, 150, 0, 2 * PI * stop / 100);
+
+  fill(0, 0, 0);
+  rotate(PI / 2);
   textSize(18);
   textAlign(CENTER);
-  text(round(stop)+"%",0,0);
+  text(round(stop) + "%", 0, 0);
 }
 
 function whichSpeed() {
