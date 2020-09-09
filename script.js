@@ -5,18 +5,17 @@ function uuid() {
   });
 }
 
-function successfullyGet() {
-	const file = document.querySelector("#photo").files[0];
-	const name = uuid().substring(0,9) + file.name;
+function successfullyGet(filename) {
 	const crs = document.querySelector("#crs").value;
 
 	// https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
 	const proxyurl = "https://cors-anywhere.herokuapp.com/";
 	var link = "https://ocrbackend.azurewebsites.net/predict/";
-	link += name;
+	//var link = "http://lvh.me:8000/predict/";
+	link += filename;
 	link += "?crs=";
 	link += crs;
-	fetch(proxyurl + link)
+	fetch(link)
 	.then(response => response.json())
 	.then(data => {
 		if (data["lon"] == -1 && data["lat"] == -1) {
@@ -57,6 +56,6 @@ function predict() {
 		setup();
 		switcher = 1;
 		percentage = 1;
-		successfullyGet();
+		successfullyGet(name);
 	});
 }
