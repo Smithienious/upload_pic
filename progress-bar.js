@@ -1,6 +1,6 @@
 var percentage = 1;
 var switcher = 0;
-var speed = 0.1;
+var speed = 0;
 var able_draw_map = 0;
 function setup() {
   createCanvas(200, 200).parent("p5js");
@@ -44,7 +44,7 @@ function whichSpeed() {
   if (switcher == 0) {
     return 0;
   } else if (switcher == 1) {
-    return 0.1;
+    return 0.009;
   } else if (switcher == 2) {
     return 1;
   }

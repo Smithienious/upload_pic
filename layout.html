@@ -39,6 +39,7 @@
             <div id="p5js"></div>
             <div id="map"></div>
             <p id = "address"></p>
+            <p id = "error" style="display: none"></p>
           </div>
           <div class="col-sm-12 order-1 order-md-2 text-center">
             <div style="padding-top: 10px; padding-bottom: 10px">
@@ -127,10 +128,6 @@
 
   <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js"></script>
 
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-         https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
-
   <script>
     // Your web app's Firebase configuration
     var firebaseConfig = {
@@ -145,7 +142,6 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
   </script>
   <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoidG9raXNha2lrdXJ1bWkyMDAxIiwiYSI6ImNrZW14aXlvYjExNTUyeW53bWlyZWh0OHgifQ.Bvwomqo3wwXFbZw1ImbS5g';
