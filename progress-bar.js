@@ -19,8 +19,8 @@ function draw() {
     speed = whichSpeed();
   } else if (percentage != 0) {
     background(255);
-    document.querySelector("#p5js").style.display = 'none';
-    document.querySelector("#map").style.display = 'block';
+    document.querySelector("#p5js").style.display = "none";
+    document.querySelector("#map").style.display = "block";
   } else {
     background(255);
   }
@@ -31,7 +31,7 @@ function drawProgress(stop) {
   rotate(-PI / 2.0);
   noFill();
   strokeWeight(4);
-  arc(0, 0, 150, 150, 0, 2 * PI * stop / 100);
+  arc(0, 0, 150, 150, 0, (2 * PI * stop) / 100);
 
   fill(0, 0, 0);
   rotate(PI / 2);
