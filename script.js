@@ -12,7 +12,7 @@ function successfullyGet(filename) {
 	const proxyurl = "https://cors-anywhere.herokuapp.com/";
 	var link = "https://ocrbackend.azurewebsites.net/predict/";
 	//var link = "http://lvh.me:8000/predict/";
-	link += filename;
+	link += `${crs}-${filename}`;
 	link += "?crs=";
 	link += crs;
 	fetch(link)
@@ -39,6 +39,7 @@ function predict() {
 	document.querySelector("#error").style.display = 'none';
 	percentage = 0;
 
+	const crs = document.querySelector("#crs").value;
   	const ref = firebase.storage().ref();
 	const file = document.querySelector("#photo").files[0];
 	const name = uuid().substring(0,9) + file.name;
@@ -46,7 +47,7 @@ function predict() {
 		contentType: file.type
 	};
 
-	const task = ref.child("images/"+name).put(file, metadata);
+	const task = ref.child(`images/${crs}-${name}`).put(file, metadata);
 	task
 	.then(snapshot => snapshot.ref.getDownloadURL())
 	.then(url => {
